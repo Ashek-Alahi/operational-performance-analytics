@@ -1,0 +1,5 @@
+aging_bucket,invoice_count,customer_count,outstanding_balance_jpy
+Paid,12162,125,0.0
+0-30 days,1375,125,58596193.0
+31-60 days,94,64,4201384.0
+60+ days,974,125,43948435.0
