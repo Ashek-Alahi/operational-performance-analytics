@@ -83,8 +83,10 @@ def build_bookings(config: HotelConfig) -> list[dict[str, object]]:
     booking_id = 1
 
     for stay_date in daterange(config.start_date, config.end_date):
-        demand = int(config.rooms_available * 0.62 * seasonality_factor(stay_date))
-        occupied_rooms = int(max(35, min(random.gauss(demand, 10), config.rooms_available)))
+        demand = int(config.rooms_available * 0.32 * seasonality_factor(stay_date))
+        # Bookings can span multiple nights, so daily arrivals must be lower
+        # than physical room capacity to keep occupied room-night KPIs realistic.
+        occupied_rooms = int(max(20, min(random.gauss(demand, 6), config.rooms_available)))
 
         for _ in range(occupied_rooms):
             room_type = weighted_choice(list(ROOM_TYPES), ROOM_TYPE_WEIGHTS)

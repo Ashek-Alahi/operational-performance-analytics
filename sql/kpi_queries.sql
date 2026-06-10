@@ -24,8 +24,8 @@ ORDER BY month;
 
 -- 2. Average daily rate (ADR) by month.
 SELECT
-    date_trunc('month', invoice_date)::date AS month,
-    ROUND(SUM(room_revenue_jpy) / NULLIF(SUM(b.rooms_booked * (b.check_out_date - b.check_in_date)), 0), 2) AS adr_jpy
+    date_trunc('month', b.check_in_date)::date AS month,
+    ROUND(SUM(i.room_revenue_jpy) / NULLIF(SUM(b.rooms_booked * (b.check_out_date - b.check_in_date)), 0), 2) AS adr_jpy
 FROM invoices i
 JOIN bookings b ON b.booking_id = i.booking_id
 GROUP BY 1
@@ -65,3 +65,19 @@ SELECT
     ) AS cost_change_pct
 FROM monthly_cost
 ORDER BY month, department;
+
+-- 5. Executive monthly KPI dataset for dashboard validation.
+SELECT
+    month,
+    revenue_jpy,
+    operating_cost_jpy,
+    operating_profit_jpy,
+    profit_margin_pct,
+    occupied_room_nights,
+    available_room_nights,
+    occupancy_rate_pct,
+    adr_jpy,
+    labor_hours,
+    revenue_per_labor_hour_jpy
+FROM vw_executive_monthly_kpis
+ORDER BY month;

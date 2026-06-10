@@ -4,8 +4,7 @@ __pycache__/
 .venv/
 venv/
 
-# Generated data
-data/raw/
+# Generated data is committed intentionally for portfolio review.
 
 # Jupyter
 .ipynb_checkpoints/

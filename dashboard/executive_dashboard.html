@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Operations Performance Dashboard</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; color: #1f2937; background: #f3f4f6; }
+    header { background: #0f172a; color: white; padding: 28px 40px; }
+    main { padding: 28px 40px; }
+    .grid { display: grid; grid-template-columns: repeat(5, minmax(140px, 1fr)); gap: 16px; }
+    .card, section { background: white; border-radius: 14px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08); }
+    .card { padding: 18px; }
+    .label { color: #64748b; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+    .value { font-size: 24px; font-weight: 700; margin-top: 8px; }
+    section { margin-top: 22px; padding: 22px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid #e5e7eb; text-align: right; }
+    th:first-child, td:first-child { text-align: left; }
+    th { background: #f8fafc; color: #475569; }
+    .note { color: #64748b; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hotel Operations Performance Analytics</h1>
+    <p>Static portfolio dashboard preview generated from the project's CSV dataset.</p>
+  </header>
+  <main>
+    <div class="grid">
+      <div class="card"><div class="label">Revenue</div><div class="value">¥356,310,662</div></div>
+      <div class="card"><div class="label">Operating Profit</div><div class="value">¥125,612,840</div></div>
+      <div class="card"><div class="label">Profit Margin</div><div class="value">35.3%</div></div>
+      <div class="card"><div class="label">Peak Occupancy</div><div class="value">94.7%</div></div>
+      <div class="card"><div class="label">Open AR</div><div class="value">¥106,746,012</div></div>
+    </div>
+    <section>
+      <h2>Monthly KPI Trend</h2>
+      <p class="note">Use this table to validate Power BI cards and line charts.</p>
+      <table><thead><tr><th>Month</th><th>Revenue</th><th>Operating Profit</th><th>Margin</th><th>Occupancy</th><th>ADR</th></tr></thead><tbody><tr><td>January 2025</td><td>¥35,020,215</td><td>¥14,422,718</td><td>41.2%</td><td>80.5%</td><td>¥18,031</td></tr>
+<tr><td>February 2025</td><td>¥31,439,524</td><td>¥10,227,719</td><td>32.5%</td><td>79.5%</td><td>¥17,847</td></tr>
+<tr><td>March 2025</td><td>¥19,664,162</td><td>¥3,926,714</td><td>20.0%</td><td>60.5%</td><td>¥13,444</td></tr>
+<tr><td>April 2025</td><td>¥27,277,806</td><td>¥8,569,831</td><td>31.4%</td><td>71.1%</td><td>¥16,263</td></tr>
+<tr><td>May 2025</td><td>¥27,500,798</td><td>¥9,011,822</td><td>32.8%</td><td>69.5%</td><td>¥16,254</td></tr>
+<tr><td>June 2025</td><td>¥20,894,436</td><td>¥4,621,357</td><td>22.1%</td><td>63.1%</td><td>¥13,768</td></tr>
+<tr><td>July 2025</td><td>¥47,218,948</td><td>¥23,425,199</td><td>49.6%</td><td>94.7%</td><td>¥20,656</td></tr>
+<tr><td>August 2025</td><td>¥46,054,017</td><td>¥20,929,319</td><td>45.4%</td><td>88.7%</td><td>¥20,981</td></tr>
+<tr><td>September 2025</td><td>¥20,230,145</td><td>¥4,268,953</td><td>21.1%</td><td>62.3%</td><td>¥14,129</td></tr>
+<tr><td>October 2025</td><td>¥28,603,415</td><td>¥10,042,569</td><td>35.1%</td><td>72.8%</td><td>¥16,585</td></tr>
+<tr><td>November 2025</td><td>¥19,329,341</td><td>¥3,218,420</td><td>16.7%</td><td>59.1%</td><td>¥14,241</td></tr>
+<tr><td>December 2025</td><td>¥33,077,855</td><td>¥12,948,219</td><td>39.1%</td><td>76.5%</td><td>¥17,856</td></tr></tbody></table>
+    </section>
+    <section>
+      <h2>Revenue Category Mix</h2>
+      <table><thead><tr><th>Category</th><th>Revenue</th><th>Share</th></tr></thead><tbody><tr><td>Rooms</td><td>¥248,583,661</td><td>69.77%</td></tr>
+<tr><td>Food &amp; Beverage</td><td>¥61,848,654</td><td>17.36%</td></tr>
+<tr><td>Events</td><td>¥24,454,624</td><td>6.86%</td></tr>
+<tr><td>Spa</td><td>¥15,212,018</td><td>4.27%</td></tr>
+<tr><td>Parking</td><td>¥6,211,705</td><td>1.74%</td></tr></tbody></table>
+    </section>
+    <section>
+      <h2>Accounts Receivable Aging</h2>
+      <table><thead><tr><th>Bucket</th><th>Invoices</th><th>Customers</th><th>Outstanding</th></tr></thead><tbody><tr><td>Paid</td><td>12162</td><td>125</td><td>¥0</td></tr>
+<tr><td>0-30 days</td><td>1375</td><td>125</td><td>¥58,596,193</td></tr>
+<tr><td>31-60 days</td><td>94</td><td>64</td><td>¥4,201,384</td></tr>
+<tr><td>60+ days</td><td>974</td><td>125</td><td>¥43,948,435</td></tr></tbody></table>
+    </section>
+  </main>
+</body>
+</html>

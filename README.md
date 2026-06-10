@@ -1,55 +1,93 @@
 # Hotel Operations Performance Analytics Dashboard
 
-![Project Status](https://img.shields.io/badge/status-in%20progress-yellow)
+![Project Status](https://img.shields.io/badge/status-complete-brightgreen)
 ![Tools](https://img.shields.io/badge/tools-Python%20%7C%20PostgreSQL%20%7C%20Power%20BI-blue)
 ![Domain](https://img.shields.io/badge/domain-Hospitality%20Analytics-green)
 
-**Tools:** Python · PostgreSQL · SQL · Power BI<br>
-**Duration:** 4 weeks<br>
-**Domain:** Hospitality · Operational Analytics · Financial Analytics<br>
-**Business Context:** Hotel ERP-style operations, revenue, cost, labor, and accounts receivable analytics
+**Tools:** Python · PostgreSQL · SQL · Power BI-ready outputs  
+**Domain:** Hospitality · Operational Analytics · Financial Analytics · ERP-style reporting  
+**Business Context:** Hotel operations, revenue, cost, labor, and accounts receivable analytics  
+**Currency:** Japanese yen (JPY)
+
+---
+
+## Executive Summary
+
+This is a completed portfolio analytics project for a hotel/resort management scenario. It simulates ERP-style operational and finance data, provides a PostgreSQL schema and reporting views, calculates business KPIs, exports analysis-ready result tables, and includes a static dashboard preview for GitHub review.
+
+The project is designed to show how an accountant, ERP analyst, or business analyst can connect operational activity to financial performance: occupancy, ADR, revenue mix, department costs, labor productivity, profit margin, and receivables aging.
 
 ---
 
 ## Business Problem
 
-Hotel managers often lack a centralized view of operational and financial performance. Revenue may be reviewed separately from operating costs, accounts receivable aging is often monitored manually, and seasonal occupancy patterns may be identified too late to support staffing, pricing, and collection decisions.
+Hotel managers often review revenue, costs, labor, and receivables in separate reports. This makes it difficult to answer practical management questions quickly:
 
-This project builds an end-to-end analytics solution that consolidates hotel operations, finance, labor, and customer payment behavior into a single Power BI dashboard. The goal is to help management answer practical questions:
+- Which months drive the highest occupancy and profit?
+- Which revenue categories create the most value?
+- Which departments create the largest cost pressure?
+- Are labor hours aligned with seasonal demand?
+- Which customers and aging buckets require collection action first?
 
-- Which revenue categories and departments create the most value?
-- Which months show the strongest occupancy and profit margin?
-- Which customers are creating collection risk through overdue balances?
-- Are labor hours and department expenses aligned with seasonal demand?
-- Where should management focus pricing, staffing, and cash collection actions?
+This project consolidates those topics into one analytics model and dashboard-ready output layer.
 
 ---
 
-## Objectives
+## Completed Results
 
-- Identify the revenue categories and departments driving the most value.
-- Track accounts receivable aging and flag chronic late-paying customers.
-- Analyze occupancy trends, seasonal demand, and peak/off-peak periods.
-- Calculate monthly profit margin, ADR, and operational KPIs.
-- Create SQL views that can be imported into Power BI for reporting.
-- Deliver a professional dashboard structure suitable for a GitHub portfolio and resume discussion.
+The repository already includes generated data and KPI output files, so reviewers can inspect the finished project without first configuring PostgreSQL or Power BI.
+
+| Result Area | Output |
+| --- | --- |
+| Generated ERP-style CSV data | `data/raw/*.csv` |
+| Monthly executive KPI table | `analysis/outputs/monthly_kpis.csv` |
+| Revenue category summary | `analysis/outputs/revenue_category_summary.csv` |
+| Department cost summary | `analysis/outputs/department_cost_summary.csv` |
+| Accounts receivable aging | `analysis/outputs/ar_aging_summary.csv` |
+| Customer collection priority list | `analysis/outputs/customer_collection_priority.csv` |
+| Written business findings | `analysis/outputs/executive_summary.md` |
+| Static dashboard preview | `dashboard/executive_dashboard.html` |
+| Power BI DAX measures | `dashboard/power_bi_measures.md` |
+
+---
+
+## Key Findings From the Generated Dataset
+
+| KPI | Result | Business Meaning |
+| --- | ---: | --- |
+| Total revenue | ¥356,310,662 | Annual simulated hotel operating revenue |
+| Operating cost | ¥230,697,822 | Annual department operating cost |
+| Operating profit | ¥125,612,840 | Revenue remaining after operating costs |
+| Profit margin | 35.3% | Overall operating profitability |
+| Peak occupancy month | July 2025 at 94.7% | Strongest seasonal demand period |
+| Strongest margin month | July 2025 at 49.6% | Best month for profit conversion |
+| Largest revenue category | Rooms: ¥248,583,661 | Core revenue driver, 69.77% of revenue |
+| Largest cost department | Rooms: ¥73,264,250 | Highest cost center, 31.76% of cost |
+| Outstanding receivables | ¥106,746,012 | Cash still to be collected |
+| 60+ day receivables | ¥43,948,435 | Highest collection-risk bucket |
+
+### Management Recommendations
+
+1. **Protect July and August profitability** by finalizing staffing and procurement plans before peak season.
+2. **Review low-season pricing floors** for March, September, and November because occupancy and margin are weaker.
+3. **Prioritize 60+ day receivables** before normal statement follow-up because this bucket carries the highest collection risk.
+4. **Monitor Rooms and Food & Beverage costs monthly** because these departments represent the largest cost share.
+5. **Use revenue per labor hour** to compare staffing efficiency between peak and off-peak months.
 
 ---
 
 ## Dataset
 
-The dataset is simulated with Python and modeled on realistic hotel operations over a 12-month period. It is designed to look like data exported from ERP, property-management, finance, and operations systems.
+The dataset is simulated with Python and modeled on realistic hotel operations over a 12-month period. It is designed to resemble data exported from ERP, property-management, finance, and operations systems.
 
-| Table | Description | Example Business Use |
-| --- | --- | --- |
-| `bookings` | Room reservations with check-in/check-out dates, room type, customer segment, and rate | Occupancy, ADR, seasonality, room mix |
-| `invoices` | Customer billing records linked to bookings | Revenue recognition, invoice amounts, payment terms |
-| `accounts_receivable` | Payment status and outstanding balances per invoice | AR aging, overdue risk, customer collection priority |
-| `department_expenses` | Monthly cost records by department | Department cost control and profit margin analysis |
-| `employee_shifts` | Staff scheduling and labor hours by department | Labor planning and staffing efficiency |
-| `daily_sales` | Revenue by category per day | Revenue mix, category trends, dashboard visuals |
-
-> The generated sample data uses Japanese yen (JPY) because the project is positioned around a Japan hotel/resort operations context.
+| Table | Rows | Description | Example Business Use |
+| --- | ---: | --- | --- |
+| `bookings` | 14,605 | Room reservations with dates, room type, customer segment, and rate | Occupancy, ADR, seasonality, room mix |
+| `invoices` | 14,605 | Customer billing records linked to bookings | Revenue recognition, invoice amounts, payment terms |
+| `accounts_receivable` | 14,605 | Payment status and outstanding balances per invoice | AR aging, overdue risk, collection priority |
+| `department_expenses` | 72 | Monthly cost records by department | Department cost control and profit margin analysis |
+| `employee_shifts` | 2,190 | Staff scheduling and labor hours by department | Labor planning and staffing efficiency |
+| `daily_sales` | 1,825 | Revenue by category per day | Revenue mix and dashboard visuals |
 
 ---
 
@@ -57,99 +95,53 @@ The dataset is simulated with Python and modeled on realistic hotel operations o
 
 | KPI | Formula / Logic | Business Value |
 | --- | --- | --- |
-| Occupancy Rate % | Occupied room nights ÷ available room nights | Measures room utilization and seasonal demand |
+| Occupancy Rate % | Occupied room nights ÷ available room nights | Measures utilization and seasonal demand |
 | ADR | Room revenue ÷ occupied room nights | Tracks pricing performance |
 | Revenue by Category | Sum of daily sales by category | Shows which services drive revenue |
 | Cost by Department | Sum of monthly department expenses | Identifies cost-heavy departments |
-| AR Aging | Outstanding balances grouped into 0-30, 31-60, and 60+ days | Prioritizes collection action |
+| AR Aging | Outstanding balances grouped into Paid, 0-30, 31-60, and 60+ days | Prioritizes collection action |
 | Monthly Profit Margin % | Operating profit ÷ revenue | Measures monthly financial performance |
 | Outstanding Receivables | Sum of unpaid invoice balances | Quantifies cash collection exposure |
 | Labor Hours | Scheduled hours by department and date | Supports staffing and productivity analysis |
+| Revenue per Labor Hour | Revenue ÷ labor hours | Measures staffing productivity |
 
 ---
 
-## Methodology
-
-### Step 1 — Schema Design and Data Generation
-
-Designed a relational schema with primary keys, foreign keys, date fields, and finance-oriented numeric fields. The Python data generator creates 12 months of simulated hotel operations data with seasonality, room type mix, payment delays, and department cost variation.
-
-### Step 2 — SQL Analytics Layer
-
-Built analytical SQL assets for PostgreSQL, including:
-
-- `CASE WHEN` logic for AR aging buckets.
-- Window functions such as `LAG()` and `PARTITION BY` for cost trend analysis.
-- Monthly KPI queries for occupancy, ADR, revenue, and cost.
-- Reusable SQL views for Power BI reporting.
-
-### Step 3 — Python Analysis
-
-Prepared a starter Jupyter notebook for Pandas-based validation and business analysis. The notebook is intended to calculate rolling averages, peak/off-peak season flags, AR concentration, and profit margin findings after the data is generated.
-
-### Step 4 — Power BI Dashboard
-
-Planned a four-page dashboard structure:
-
-1. **Executive Overview** — KPI cards for revenue, cost, margin, occupancy, ADR, and outstanding receivables.
-2. **Operations Performance** — occupancy trends, room type mix, department filters, and labor hours.
-3. **Finance and P&L** — revenue, department expenses, operating profit, and profit margin trend.
-4. **Accounts Receivable** — aging buckets, overdue customer drill-through, and outstanding balance details.
-
----
-
-## Key Findings
-
-This section should be updated after generating the data, loading it into PostgreSQL, and building the final dashboard. Replace the placeholders below with real numbers from the SQL views or Power BI report.
-
-- Peak occupancy occurred in **[Month]**, with an average occupancy rate of **X%**.
-- The **[Revenue Category]** category contributed the highest revenue at **X%** of total revenue.
-- **X customers** carried receivables overdue by 60+ days, representing **¥X** in outstanding balance.
-- Profit margin peaked in **[Month]** and declined in **[Month]**, mainly driven by **[cost factor]**.
-- Department expenses were highest in **[Department]**, indicating a possible cost-control or staffing review area.
-
-> Practical portfolio note: recruiters and hiring managers often look at this section first. Filling it with real numbers makes the project look like completed analytical work rather than a template.
-
----
-
-## Repository Structure
+## Project Structure
 
 ```text
-hotel-operations-analytics/
+operational-performance-analytics/
 ├── analysis/
-│   └── hotel_analysis.ipynb          # Pandas analysis and trend calculations
+│   ├── generate_results.py            # Creates final KPI outputs and dashboard preview
+│   ├── hotel_analysis.ipynb           # Notebook starter for exploratory analysis
+│   └── outputs/                       # Completed KPI exports and written findings
 ├── dashboard/
-│   └── README.md                     # Power BI dashboard build notes
+│   ├── executive_dashboard.html       # Static dashboard preview for GitHub reviewers
+│   ├── power_bi_measures.md           # DAX measures for a Power BI version
+│   └── README.md                      # Dashboard build notes
 ├── data/
-│   └── generate_data.py              # Simulated dataset generation script
+│   ├── generate_data.py               # Repeatable simulated data generator
+│   ├── load_to_postgres.py            # Optional PostgreSQL CSV loader
+│   └── raw/                           # Generated completed dataset
 ├── docs/
-│   └── data_model.md                 # Data model and table-grain documentation
+│   └── data_model.md                  # Data model and table-grain documentation
 ├── screenshots/
-│   └── README.md                     # Placeholder for exported dashboard images
+│   └── README.md                      # Screenshot export guidance
 ├── sql/
-│   ├── ar_aging.sql                  # Accounts receivable aging buckets
-│   ├── kpi_queries.sql               # Occupancy, ADR, revenue, and cost queries
-│   ├── schema.sql                    # Table definitions, constraints, and indexes
-│   └── views.sql                     # Analytical SQL views for Power BI
+│   ├── ar_aging.sql                   # Accounts receivable aging queries
+│   ├── kpi_queries.sql                # KPI validation queries
+│   ├── schema.sql                     # PostgreSQL tables, constraints, and indexes
+│   └── views.sql                      # Analytical views for Power BI
 ├── LICENSE
 ├── README.md
 └── requirements.txt
 ```
 
-Generated CSV files are written to `data/raw/` by default. The folder is intentionally not committed so the repository can stay lightweight.
-
 ---
 
-## How to Run This Project
+## How to Reproduce the Project
 
-### 1. Clone the repository
-
-```bash
-git clone <repository-url>
-cd hotel-operations-analytics
-```
-
-### 2. Create and activate a Python environment
+### 1. Create and activate a Python environment
 
 ```bash
 python -m venv .venv
@@ -157,119 +149,90 @@ source .venv/bin/activate        # macOS/Linux
 # .venv\Scripts\activate         # Windows PowerShell
 ```
 
-### 3. Generate simulated data
-
-The data generator uses only the Python standard library, so it can be run before installing the analysis dependencies.
-
-```bash
-python data/generate_data.py --output-dir data/raw
-```
-
-### 4. Install analysis dependencies
-
-Install these before running the Jupyter notebook or building a Python-based database load script.
+### 2. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Expected CSV outputs:
+### 3. Regenerate the simulated dataset
 
-- `data/raw/bookings.csv`
-- `data/raw/invoices.csv`
-- `data/raw/accounts_receivable.csv`
-- `data/raw/department_expenses.csv`
-- `data/raw/employee_shifts.csv`
-- `data/raw/daily_sales.csv`
-
-### 5. Create PostgreSQL tables
+The data generator uses only the Python standard library.
 
 ```bash
+python data/generate_data.py --output-dir data/raw
+```
+
+### 4. Recreate KPI outputs and dashboard preview
+
+```bash
+python analysis/generate_results.py
+```
+
+This command writes the final CSV summaries in `analysis/outputs/` and refreshes `dashboard/executive_dashboard.html`.
+
+### 5. Optional: create PostgreSQL tables
+
+```bash
+createdb hotel_operations
 psql -d hotel_operations -f sql/schema.sql
 ```
 
-Load the CSV files into the matching PostgreSQL tables using your preferred method, such as `COPY`, pgAdmin import, or a Python loading script.
-
-### 6. Run KPI queries and create views
+### 6. Optional: load generated CSV data into PostgreSQL
 
 ```bash
-psql -d hotel_operations -f sql/kpi_queries.sql
-psql -d hotel_operations -f sql/ar_aging.sql
-psql -d hotel_operations -f sql/views.sql
+python data/load_to_postgres.py --database-url postgresql://user:password@localhost:5432/hotel_operations
 ```
 
-### 7. Build the Power BI dashboard
+### 7. Optional: create analytical views and run SQL checks
 
-Connect Power BI to PostgreSQL and import the reporting views:
-
-- `vw_monthly_occupancy`
-- `vw_monthly_profit_margin`
-- `vw_ar_aging`
-- `vw_revenue_category_monthly`
+```bash
+psql -d hotel_operations -f sql/views.sql
+psql -d hotel_operations -f sql/kpi_queries.sql
+psql -d hotel_operations -f sql/ar_aging.sql
+```
 
 ---
 
-## Dashboard Preview
+## Power BI Dashboard Plan
 
-Dashboard screenshots will be added after the Power BI report is completed.
+The project is Power BI-ready. Import the SQL views from `sql/views.sql` or import the CSV outputs directly.
 
-Suggested screenshots:
+Recommended report pages:
 
-| Page | Screenshot File |
-| --- | --- |
-| Executive Overview | `screenshots/executive-overview.png` |
-| Operations Performance | `screenshots/operations-performance.png` |
-| Finance and P&L | `screenshots/finance-profit-margin.png` |
-| Accounts Receivable Aging | `screenshots/accounts-receivable-aging.png` |
+1. **Executive Overview** — revenue, cost, margin, occupancy, ADR, and outstanding receivables.
+2. **Operations Performance** — occupancy trend, labor hours, revenue per labor hour, room type mix.
+3. **Finance and P&L** — revenue, department expenses, operating profit, and profit margin trend.
+4. **Accounts Receivable** — aging buckets, overdue customer drill-through, and outstanding balance details.
+
+A static HTML preview is included at `dashboard/executive_dashboard.html` for reviewers who do not have Power BI installed.
 
 ---
 
 ## Business Value
 
-This project demonstrates how an accountant or ERP analyst can move beyond transaction reporting and create management-level insight. The dashboard connects operational activity with financial outcomes, which supports:
+This project demonstrates how ERP-style operational data can be converted into management insight. It supports:
 
-- Better seasonal staffing and cost planning.
+- Better seasonal staffing and purchasing decisions.
 - Faster identification of overdue customer balances.
-- Improved revenue category monitoring.
-- Clearer monthly profit margin analysis.
-- More informed pricing and department-performance discussions.
+- Clearer monthly revenue, cost, and margin review.
+- Stronger discussion of operational KPIs in accounting, ERP, SAP, or business analyst interviews.
+- A complete GitHub portfolio project with reproducible data, SQL, analysis outputs, and dashboard documentation.
 
 ---
 
 ## Skills Demonstrated
 
 - Relational database design and ERP-aligned table modeling.
-- PostgreSQL schema creation, constraints, indexes, and analytical views.
-- SQL joins, aggregations, `CASE WHEN`, window functions, and KPI logic.
-- Python data generation using Pandas and NumPy.
-- Financial analytics, including P&L, AR aging, margin, and cost analysis.
-- Business Intelligence dashboard planning with Power BI.
-- Portfolio-ready documentation for analytics and ERP career positioning.
+- PostgreSQL schema creation, constraints, indexes, analytical views, and KPI queries.
+- SQL joins, aggregations, `CASE WHEN`, window functions, and dashboard-ready views.
+- Python data generation and repeatable KPI export automation.
+- Financial analytics: P&L, AR aging, margin, department costs, and collection risk.
+- Business Intelligence dashboard planning with Power BI-ready DAX measures.
+- Portfolio-ready documentation for ERP, SAP, accounting analytics, and business analytics roles.
 
 ---
 
-## Recommended Next Improvements
+## Suggested Resume Bullet
 
-- Add a Python CSV-to-PostgreSQL loading script.
-- Add a date dimension table for Power BI time intelligence.
-- Complete the Power BI `.pbix` file and export dashboard screenshots.
-- Replace the Key Findings placeholders with final calculated values.
-- Add DAX measures for occupancy, ADR, profit margin, and AR aging.
-- Add a data quality checklist for missing dates, duplicate invoices, and negative balances.
-
----
-
-## Author
-
-**Ashek Alahi**<br>
-Accountant · ERP Enthusiast · Analytics Learner<br>
-Aomori Resort Co. Ltd., Japan<br>
-
-- LinkedIn: `[Add LinkedIn URL]`
-- Email: `[Add professional email]`
-
----
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+> Built an end-to-end hotel operations analytics project using Python, PostgreSQL, SQL, and Power BI-ready outputs; modeled ERP-style bookings, invoices, accounts receivable, department expenses, labor schedules, and daily sales to analyze occupancy, ADR, profit margin, revenue mix, labor productivity, and AR aging risk.
