@@ -171,7 +171,7 @@ PostgreSQL is optional. The Python scripts and CSV outputs are enough to reprodu
 - Not a live ERP connection.
 - Not a production forecasting system.
 - Not an actual SAP implementation.
-- Power BI-ready, but not a full PBIX dashboard unless a PBIX file is added.
+- Power BI-ready outputs and static dashboard preview; no completed PBIX dashboard is included.
 
 ## Interview Positioning
 

@@ -13,7 +13,7 @@
 - It is not a real SAP S/4HANA implementation.
 - It does not use real company data.
 - It is not a production forecasting system.
-- It does not include a finished Power BI `.pbix` file unless one is added later.
+- It does not include a finished Power BI `.pbix` file.
 
 ## ERP/SAP Relevance
 
@@ -33,7 +33,7 @@ The project turns transactional-style data into management outputs: KPI tables, 
 - Not a live ERP connection.
 - Not a production forecasting system.
 - Not an actual SAP implementation.
-- Power BI-ready, but not a full PBIX dashboard unless a PBIX file is added.
+- Power BI-ready outputs and static dashboard preview; no completed PBIX dashboard is included.
 
 ## 30-Second Explanation
 
@@ -55,4 +55,4 @@ The project turns transactional-style data into management outputs: KPI tables, 
 | Is this an SAP project? | No. It is SAP/ERP-relevant analytics, but not an SAP implementation. |
 | Why use simulated data? | It avoids confidentiality issues and makes the project reproducible for reviewers. |
 | What business question does it answer? | It shows which months, revenue categories, departments, labor patterns, and AR buckets need management attention. |
-| What would you improve next? | Add a PBIX file, dimensional date table, richer external drivers, and more formal data-quality tests. |
+| What is the current scope? | A reproducible simulated ERP-style analytics project with Python, SQL, KPI outputs, validation, tests, and a static dashboard preview. |

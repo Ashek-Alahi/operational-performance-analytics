@@ -34,4 +34,4 @@ Use either option:
 - PostgreSQL views from `../sql/views.sql`.
 - CSV exports from `../analysis/outputs/` for a lightweight portfolio demo.
 
-Export final Power BI page images to `../screenshots/` if you create a `.pbix` version locally.
+The static dashboard preview is available at `executive_dashboard.html`; exported Power BI screenshots are not included because this repository does not contain a completed `.pbix` file.
