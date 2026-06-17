@@ -1,7 +1,8 @@
-# Power BI Measures
+# Power BI-Ready Measures and Dashboard Design Plan
 
-Use these DAX measures after importing the PostgreSQL views or generated CSV files.
-They are written with accounting and ERP-style KPI validation in mind.
+Use these DAX measures after importing the PostgreSQL views or generated CSV files. They are written for accounting and ERP-style KPI validation.
+
+> This repository does not include a completed `.pbix` file. These are Power BI-ready measures and design notes.
 
 ```DAX
 Total Revenue JPY = SUM('vw_monthly_profit_margin'[revenue_jpy])
